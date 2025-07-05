@@ -1,5 +1,7 @@
 import Layout from "./Layout"
+import Dashboard from "./Dashboard"
 
 export {
-	Layout
+	Layout,
+	Dashboard
 }

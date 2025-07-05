@@ -2,7 +2,13 @@
 export default function Dashboard(){
 	return (
 		<>
-		DASHBOARD
+			<div className="breadcrumbs text-sm">
+			  <ul>
+				<li><a>Home</a></li>
+				<li><a>Documents</a></li>
+				<li>Add Document</li>
+			  </ul>
+			</div>
 		</>
 	)
 }

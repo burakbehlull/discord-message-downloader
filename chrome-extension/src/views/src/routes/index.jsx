@@ -1,20 +1,19 @@
 import { useRoutes } from 'react-router-dom'
-import { Layout } from "@pages"
+import { Layout, Dashboard } from "@pages"
 
 export default function Routes(){
 
     return useRoutes([
         {
-            path: '/',
             element: <Layout />,
 			children: [
 				{
-					path: '/dashboard',
-					element: <></>,
+					path: '',
+					element: <Dashboard />,
 				},
 				{
-					path: '/show',
-					element: <></>,
+					path: '/messages',
+					element: <>messages</>,
 				}
 			]
         }
