@@ -18,7 +18,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': way('src')
+      '@': way('src'),
+      '@pages': way('src/pages/index'),
     }
   }
 })

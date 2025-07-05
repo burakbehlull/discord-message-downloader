@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import Routes from "./routes/index"
 
 import "./index.css"
 
 function App() {
-  const [token, setToken] = useState(null)
+  /* const [token, setToken] = useState(null)
 
   useEffect(() => {
     chrome.storage.local.get('token', (result) => {
@@ -16,10 +17,11 @@ function App() {
       }
     })
   })
+  */
   
   return (
 	<>
-		HELLO D.M.D.
+		<Routes />
 	</>
   )
 }
