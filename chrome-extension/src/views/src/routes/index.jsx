@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom'
-import { Layout, Dashboard } from "@pages"
+import { Layout, Dashboard, Viewer, Downloader } from "@pages"
 
 export default function Routes(){
 
@@ -12,8 +12,12 @@ export default function Routes(){
 					element: <Dashboard />,
 				},
 				{
-					path: '/messages',
-					element: <>messages</>,
+					path: '/viewer',
+					element: <Viewer />,
+				},
+				{
+					path: '/downloader',
+					element: <Downloader />,	
 				}
 			]
         }
