@@ -1,11 +1,11 @@
 import { useOutletContext } from "react-router-dom";
 
-export default function Dashboard({num}){
-  const user = useOutletContext();
+export default function Dashboard(){
+  const data = useOutletContext();
 	return (
 		<>
 			DASH
-			{user.num}
+			{data.token}
 		</>
 	)
 }
