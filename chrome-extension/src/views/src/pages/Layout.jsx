@@ -20,6 +20,7 @@ export default function Layout(){
 	})
 	*/
 	
+	
 	const navigate = useNavigate()
 	
 	function handleNavigator(name){
@@ -30,7 +31,6 @@ export default function Layout(){
 	// justify-center
 	return (
 		<div className="flex flex-col items-center p-2 gap-2 text-center h-full w-[376px]">
-			
 			<nav>
 				<Breadcrumbs>
 					<li><a onClick={()=> handleNavigator("/")}>Home</a></li>
