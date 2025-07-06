@@ -9,7 +9,7 @@ export default function Layout(){
 	
 	const [token, setToken] = useState(null)
 	const [user, setUser] = useState(null)
-	/*
+	
 	useEffect(() => {
 		chrome.storage.local.get('token', (result) => {
 		  if (result.token) {
@@ -21,7 +21,7 @@ export default function Layout(){
 		  }
 		})
 	})
-	*/
+	
 	
 	async function userDataAction(){
 		const userData = await getUserData(token)
