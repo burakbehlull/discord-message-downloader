@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
 
 import { Outlet, useNavigate } from "react-router-dom"
+
 import { Breadcrumbs } from "@components"
+import { getUserData } from "@api"
 
 export default function Layout(){
 	
 	const [token, setToken] = useState(null)
+	const [user, setUser] = useState(null)
 	/*
 	useEffect(() => {
 		chrome.storage.local.get('token', (result) => {
@@ -20,6 +23,15 @@ export default function Layout(){
 	})
 	*/
 	
+	async function userDataAction(){
+		const userData = await getUserData(token)
+		setUser(userData)
+		console.log(userData)
+	}
+	
+	useEffect(()=> {
+		userDataAction()
+	}, [])
 	
 	const navigate = useNavigate()
 	
@@ -27,7 +39,11 @@ export default function Layout(){
 		navigate(name)
 	}
 	
-	const data = { token: token || null };
+
+	const data = { 
+		token: token || null, 
+		user: user || null 
+	};
 	// justify-center
 	return (
 		<div className="flex flex-col items-center p-2 gap-2 text-center h-full w-[376px]">

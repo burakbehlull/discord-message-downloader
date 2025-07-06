@@ -1,10 +1,10 @@
-async function getUserData(TOKEN) {
+async function getUserData(token) {
     const url = `https://discord.com/api/v9/users/@me`;
 
     try {
         const response = await fetch(url, {
             headers: {
-                "Authorization": `${TOKEN}`
+                "Authorization": `${token}`
             }
         });
 

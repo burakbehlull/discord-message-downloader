@@ -10,7 +10,8 @@ function way(name){
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000
+    port: 3000,
+	historyApiFallback: true
   },
   base: './', 
   build: {

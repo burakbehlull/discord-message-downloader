@@ -19,6 +19,6 @@
 div#root {
     padding: 10px;
     width: max(25rem);
-    height: min(22em);
+    height: min(30em);
     overflow: auto;
 }
