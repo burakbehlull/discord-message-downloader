@@ -3,28 +3,31 @@ import { useOutletContext } from "react-router-dom";
 
 import { Button, InputLegend, Input, Avatar } from "@components"
 import { fetchAllMessages } from "@api"
+import { useData } from "@context"
 
 export default function Dashboard(){
+	
 	const [messages, setMessages] = useState(null)
 	const [channelId, setChannelId] = useState('')
 	const [messageNumber, setMessageNumber] = useState(10)
-	const data = useOutletContext();
-	console.log(data)
+	
+	const contextData = useOutletContext();
+	const { setData } = useData()
 	
 	async function handleMessagesPull(){
-		const response = await fetchAllMessages(channelId, data?.token, Number(messageNumber))
-		
-		setMessages(response)
+		const result = await fetchAllMessages(channelId, contextData?.token, Number(messageNumber))
+		setMessages(result)
+		setData(result)
 	}
+	
 	
 	return (
 		<>
-		{JSON.stringify(messages)}
 			<div className="flex gap-4 items-center">
-				<Avatar link={data?.user?.avatar} mainStyles="mt-3" />
+				<Avatar link={contextData?.user?.avatar} mainStyles="mt-3" />
 				<div>
-					<p className="font-bold">  # {data?.user?.username}</p>
-					<p className="text-sm"> {data?.user?.id} </p>
+					<p className="font-bold">  # {contextData?.user?.username}</p>
+					<p className="text-sm"> {contextData?.user?.id} </p>
 				</div>
 			</div>
 		

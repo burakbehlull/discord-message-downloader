@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 
 export default function Downloader(){
-	const data = useOutletContext()
+	const contextData = useOutletContext()
 	return (
 		<>
 			Downloader

@@ -68,5 +68,6 @@ async function fetchAllMessages(channelId, token, maxMessages = Infinity) {
 
 export {
 	getUserData,
-	fetchAllMessages
+	fetchAllMessages,
+	getUserAvatar
 }
