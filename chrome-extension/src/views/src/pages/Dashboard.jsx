@@ -7,7 +7,6 @@ import { useData } from "@context"
 
 export default function Dashboard(){
 	
-	const [messages, setMessages] = useState(null)
 	const [channelId, setChannelId] = useState('')
 	const [messageNumber, setMessageNumber] = useState(10)
 	
@@ -16,8 +15,10 @@ export default function Dashboard(){
 	
 	async function handleMessagesPull(){
 		const result = await fetchAllMessages(channelId, contextData?.token, Number(messageNumber))
-		setMessages(result)
-		setData(result)
+		setData({
+			messages: result,
+			username: contextData?.user?.username
+		})
 	}
 	
 	
