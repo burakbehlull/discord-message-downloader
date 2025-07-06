@@ -26,12 +26,11 @@ export default function Layout(){
 	async function userDataAction(){
 		const userData = await getUserData(token)
 		setUser(userData)
-		console.log(userData)
 	}
 	
 	useEffect(()=> {
 		userDataAction()
-	}, [])
+	}, [token])
 	
 	const navigate = useNavigate()
 	
