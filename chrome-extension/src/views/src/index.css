@@ -19,7 +19,7 @@
 div#root {
     padding: 10px;
     width: max(25rem);
-    height: min(30em);
+    height: min(40em);
     overflow: auto;
 }
 
