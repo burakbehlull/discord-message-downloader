@@ -1,12 +1,14 @@
 import { useOutletContext } from "react-router-dom";
+import { toast } from "react-hot-toast"
+
 import { useData } from "@context"
 
 export default function Downloader(){
 	const contextData = useOutletContext()
 	const { setData, data } = useData()
 
-
 	const handleDownload = () => {
+		if(!data?.messages || !data) return toast.error("İndirilecek veri yok.")
 		const json = JSON.stringify(data, null, 2);
 		const blob = new Blob([json], { type: "application/json" });
 		const url = URL.createObjectURL(blob);
@@ -20,6 +22,10 @@ export default function Downloader(){
 
 		document.body.removeChild(link);
 		URL.revokeObjectURL(url);
+		
+		toast.success("Mesajlar başarıyla indirildi.", {
+			duration: 1000, id: "download-message"
+		})
 	};
 
 	

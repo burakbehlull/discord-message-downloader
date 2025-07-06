@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { toast } from "react-hot-toast"
 
 import { Button, InputLegend, Input, Avatar } from "@components"
 import { fetchAllMessages } from "@api"
@@ -15,6 +16,9 @@ export default function Dashboard(){
 	
 	async function handleMessagesPull(){
 		const result = await fetchAllMessages(channelId, contextData?.token, Number(messageNumber))
+		toast.success("Mesajlar başarıyla çekildi.", {
+			duration: 1000, id: "fetch-message"
+		})
 		setData({
 			messages: result,
 			username: contextData?.user?.username
