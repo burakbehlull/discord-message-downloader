@@ -8,16 +8,16 @@ export default function ChatBubble({ messages, username }) {
   }, [messages]);
 
   const formatTimestamp = (timestamp) => {
-		const date = new Date(timestamp);
-		return date.toLocaleString("tr-TR", {
-		  day: "2-digit",
-		  month: "long",
-		  year: "numeric",
-		  hour: "2-digit",
-		  minute: "2-digit",
-		});
+    const date = new Date(timestamp);
+    return date.toLocaleString("tr-TR", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   };
-
+  
 
   return (
     <div
@@ -26,6 +26,7 @@ export default function ChatBubble({ messages, username }) {
     >
       {messages?.map((msg) => {
         const isMe = msg.author.username === username;
+
         return (
           <div
             key={msg.id}
@@ -45,8 +46,24 @@ export default function ChatBubble({ messages, username }) {
                 {formatTimestamp(msg.timestamp)}
               </time>
             </div>
-            <div className="chat-bubble">{msg.content}</div>
-            
+
+            <div className="chat-bubble break-words">
+              {msg.content}
+
+              {/* Eğer resim varsa burada göster */}
+              {msg.attachments &&
+                msg.attachments.map((att) =>
+                  att.content_type?.startsWith("image/") ? (
+                    <div key={att.id} className="mt-2">
+                      <img
+                        src={att.url}
+                        alt="Gönderilen resim"
+                        className="max-w-xs max-h-60 rounded-md border mt-2"
+                      />
+                    </div>
+                  ) : null
+                )}
+            </div>
           </div>
         );
       })}
